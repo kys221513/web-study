@@ -13,35 +13,179 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-
-
+    
 </head>
+
 <body>
-    <div class ="container" id="container">
-    <h3 id="title">To do list </h3>    
-        <div id="sub-container">
+  <!-- sub-container 안에 리스트 차례대로 추가시키기(아직은 추가만됨. 코딩로만 입력가능. 웹페이지에 보이게만 해놓음)  -->
+    <div class ="container" id="container"> 
+    <h3 id="title">To do list </h3>     
+        <div id="sub-container">  
             <ul class="list-group" id="list-group" >
                 <li class="list-group-item d-flex justify-content-between align-items-center" id="list-group-item">
                   Today's list
-                  <span class="badge badge-primary badge-pill">delete</span>
+                  <span class="badge badge-primary badge-pill" onclick="deleteTodo()">delete</span>
                 </li>
-                
-                <li class="list-group-item d-flex justify-content-between align-items-center" id="list-group-item">
-                    Today's list
-                    <span class="badge badge-primary badge-pill">delete</span>
-                  </li>
               </ul>
         </div>
+    <!-- 입력창 bootstrap에서 가져옴. 아직 입력데이터 받지를 못함. 진짜 깡통입력창임 웹페이지에 보이게만 해놓음 -->
         <div class="input-group mb-3" id="input-group">
             <input type="text" class="form-control" id="input-area">
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-area" >Button</button>
+              <button class="btn btn-outline-secondary" type="button" id="button-area"  onclick="addTodo()">Add</button>
             </div>
           </div>
 
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+    </script>
+
+
+    <script>
+        $(document).ready(function(){
+            console.log("시작!")
+        })
+        // 변수, 숫자, 문자, boolean 주석 ctrl+/
+        let a = "값"
+        let b = 100
+        let c = true
+        let d = false
+
+        let a2 = "은 뭘까요?"
+        let a3 = a + a2;
+        console.log(a3)
+        let b2 = 200;
+        let b3 = b + b2;
+        console.log(b3)
+        let ab = a + b;
+        console.log(ab)
+        let c2 = 10 > 5;
+        console.log(c2) 
+
+        console.log(b- b2)
+        console.log(b * b2)
+        console.log(b / b2)
+        console.log(b % b2)
+        console.log(d)
+
+        let str = "문자";
+        let str2 = '문자';
+        let str3 = `문자`;
+        console.log(`저의 나이는  ${b}입니다`)
+
+    //객체와 배열 console.log()은 웹 콘솔에서 확인함으로써 디버깅을 목적
+        let arr = [1,2,3,4,'문자',true, false]
+        arr.push("값") //arr 동작하고 있는 중엔 뒤에 추가 못하니까 배열 추가 코딩을 해줘서 동작하면서 추가시킬수 있음
+        console.log(arr)
+
+        let obj = {"key":"value","key2":"value2"}
+        console.log(obj)
+        let dic = [
+            {"a":"apple"},
+            {"b":"banana"},
+            {"c":"cloud"}
+            ]
+        console.log(dic)
+        let api = {
+            "page": 1,
+            "total_results" : 10000,
+            "total_pages": 500,
+            "results" : [
+                {
+                    "popularity": 3130.643,
+                    "vote_count": 143,
+                    "genre_ids": [
+                        18,
+                        878,
+                        53
+                    ],
+                    "title" : "2067",
+                    "vote_average": 5.8
+                }
+            ]
+        }
+        console.log(api.results[0].vote_count)
+        // for 문
+        let arr2 = [1,2,3,4,5,6,7];
+        for(let i=0; i < arr2.length; i++){
+           
+            if(arr2[i] % 2 == 0){
+                console.log(i)
+                console.log(arr2[i])
+            };
+        }
+
+        let temperature = 30;
+
+        if (temperature > 30) {
+            console.log("It's a hot day!");
+        } else if (temperature > 20) {
+            console.log("It's a warm day.");
+        } else if (temperature > 10) {
+            console.log("It's a cool day.");
+        } else {
+            console.log("It's a cold day.");
+        }
+        
+    </Script>
+
+    <script>
+        function x(num1, num2){
+            return num1 + num2
+        }
+        let y = x(100,200)
+        console.log(y)
+        
+        let str4 = "대,한,민,국,만,세"
+        let str5 = str4.split(",")
+        console.log(str4)
+        console.log(str5)
+        let str6 = str5.join("!")
+        console.log(str6)
+
+        console.log(str4.indexOf("만"));
+
+        // 사용자 입력 -> 버튼누르면 -> 값을 가지고와서 -> 리스트에 추가하기
+
+        // *정석 코드 문법
+        // function x(){
+        //     let todo = document.getElementById ("input-area").value;
+        //     console.log(todo)                  
+        // }
+       
+    // jquary 문법
+        function x(){                
+            let todo = $("#input-area").val();
+        console.log(todo)
+        }
+    </script>
+    
+    <script> 
+      
+
+     //입력하는 정보 콘솔에서 받아서. 각 id로 코드 만들어준다음. 뒤 리스트영역에 보이게하기
+        function addTodo(){
+            let Todo = $("#input-area").val();
+            console.log(Todo)
+            let id = Math.floor(Math.random() *100000);     //램덤 수 지정 후 곱해서 반올림
+            console.log(id)
+
+        let list_item = `<li class="list-group-item d-flex justify-content-between align-items-center list-${id}" id="list-group-item">
+            ${Todo}
+            <span class="badge badge-primary badge-pill" onclick="deleteTodo(${id})">delete</span>
+            </li>`                                // 입력내용 받아서 입력값을 코드로 바로 만들어주는 작업
+            $("#list-group").append(list_item); // 만들어진 코드를 리스트 클래스에 추가시켜서 리스트로 연결하고 보이게하는 작업
+            $("#input-area").val('');          // 입력하면 바로 전에 입력내용 알아서 지워줌
+            }
+        
+        function deleteTodo(id){            //만든 고유id를 받는 리스트만 삭제 개별삭제를 위함
+           $(".list-"+id).remove()
+        }
+
         
 
+    </script>
 
 
 </body>
